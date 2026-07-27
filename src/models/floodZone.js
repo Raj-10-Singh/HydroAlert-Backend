@@ -46,4 +46,4 @@ const floodZoneSchema = new mongoose.Schema({
 
 floodZoneSchema.index({ location: '2dsphere' });
 
-module.exports = mongoose.model('FloodZone', floodZoneSchema);
+module.exports = mongoose.model('floodZone', floodZoneSchema);
