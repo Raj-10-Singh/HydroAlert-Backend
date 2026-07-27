@@ -1,4 +1,4 @@
-const Alert = require('../models/Alert');
+const Alert = require('../models/alert');
 const User = require('../models/user');
 const { getIO } = require('../sockets/socketHandler');
 
