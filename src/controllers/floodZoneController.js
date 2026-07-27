@@ -1,4 +1,4 @@
-const FloodZone = require('../models/FloodZone');
+const FloodZone = require('../models/floodZone');
 const { getIO } = require('../sockets/socketHandler');
 
 // @route GET /api/zones
