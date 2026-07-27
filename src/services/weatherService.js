@@ -1,5 +1,5 @@
 const axios = require('axios');
-const FloodZone = require('../models/FloodZone');
+const FloodZone = require('../models/floodZone');
 const { getIO } = require('../sockets/socketHandler');
 
 const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
