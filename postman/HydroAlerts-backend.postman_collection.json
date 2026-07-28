@@ -1,0 +1,546 @@
+{
+  "info": {
+    "_postman_id": "466df4ba-9712-461c-bd9f-1068318960c8",
+    "name": "HydroAlerts/backend",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48039524"
+  },
+  "item": [
+    {
+      "name": "test all alert route",
+      "item": [
+        {
+          "name": "create alert",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Flash Flood Warning\",\r\n  \"message\": \"Water levels rising rapidly near Hooghly river\",\r\n  \"severity\": \"high\",\r\n  \"zone\": \"zone_kolkata_north\",\r\n  \"longitude\": 88.3639,\r\n  \"latitude\": 22.5726,\r\n  \"radius\": 8000\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/alerts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "alerts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Active Alerts",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/alerts",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "alerts"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get alert by zone",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/alerts/zone/zone_kolkata_north",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "alerts",
+                "zone",
+                "zone_kolkata_north"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get nearby alert",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/alerts/nearby?longitude=88.3639&latitude=22.5726&maxDistance=10000",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "alerts",
+                "nearby"
+              ],
+              "query": [
+                {
+                  "key": "longitude",
+                  "value": "88.3639"
+                },
+                {
+                  "key": "latitude",
+                  "value": "22.5726"
+                },
+                {
+                  "key": "maxDistance",
+                  "value": "10000"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "deactivate alert",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/alerts/69bc1d4dfd5a8e6e3ecebc2a/deactivate",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "alerts",
+                "69bc1d4dfd5a8e6e3ecebc2a",
+                "deactivate"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "testing shelter,risk api alerts",
+      "item": [
+        {
+          "name": "create a zone",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Kolkata North Zone\",\r\n  \"zoneId\": \"zone_kolkata_north\",\r\n  \"longitude\": 88.3639,\r\n  \"latitude\": 22.5726\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/zones",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "zones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Zones",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/zones",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "zones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Zone Risk",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"waterLevel\": 150,\r\n  \"rainfall\": 65,\r\n  \"riskLevel\": \"high\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/zones/zone_kolkata_north/update-risk",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "zones",
+                "zone_kolkata_north",
+                "update-risk"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create a Shelter",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Rabindra Sarani Relief Camp\",\r\n  \"address\": \"Rabindra Sarani, Kolkata\",\r\n  \"longitude\": 88.3530,\r\n  \"latitude\": 22.5800,\r\n  \"capacity\": 250,\r\n  \"contactNumber\": \"033-12345678\",\r\n  \"facilities\": [\"food\", \"water\", \"medical\"]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/shelters",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "shelters"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Nearby Shelters",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "signup,login,update new location api",
+      "item": [
+        {
+          "name": "creating account",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Raj\",\r\n  \"email\": \"raj@test.com\",\r\n  \"password\": \"123456\",\r\n  \"phone\": \"9876543210\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"raj@test.com\",\r\n  \"password\": \"123456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "verifying Loggedin accounts",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5000/api/auth/me",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Updating new location of user",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YmJjMTE2OWQ4OWU0ZjQzYWJiZTY4ZSIsImlhdCI6MTc3MzkxMjM0MywiZXhwIjoxNzc0NTE3MTQzfQ.4Leb4nOg9aaPyIiJG16g3CXdoh3YZcGNwtTLkSs__kg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"longitude\": 88.3639,\r\n  \"latitude\": 22.5726,\r\n  \"zone\": \"zone_kolkata_north\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5000/api/auth/update-location",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5000",
+              "path": [
+                "api",
+                "auth",
+                "update-location"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Test a prediction",
+      "item": [
+        {
+          "name": "New Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"rainfall\": 90,\r\n  \"water_level\": 230,\r\n  \"humidity\": 94,\r\n  \"temperature\": 27,\r\n  \"rain_hours\": 8,\r\n  \"prev_day_rain\": 50\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8000/predict",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "predict"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Test Live Backend",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
